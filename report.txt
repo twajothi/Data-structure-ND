@@ -1,0 +1,23 @@
+Thibault Joseph Twahirwa
+CSE 20312
+January 31st, 2017
+
+
+ * How the user uses the program: 
+  USER'S PERSPECTIVE: this program allows you   to play a game of Connect 4.
+This game involves two players, symbolized in our case by 'X' and 'O' placing "discs" one after another into a board of six rows and seven columns. If one player gets four of their "discs" in a row in any given direction, they win the game. During this version of the game, the user actually plays against a computer, who acts as Player 2. The board is displayed after every turn, and the user is not allowed to choose a column that is full or that does not exist. Once one player is victorious, the user is asked if they would like to play again, in which case the board is cleared and the game restarts. If the board becomes filled with discs with no winner, the game is called a draw and is ended. Between each turn, there is a slight pause to allow the user to follow the computer's move.
+
+* MY PERSPECTIVE :
+From the programmer's perspective, this game is made up of two object interfaces and implementations. The first object is a column object, made up of an array of characters. The second object is a board object, made up of an array of columns. In column object implementation, the programmer can remove or add element, find the current number of elements present, also can check to see if it is full to issue a warning. From the board implementation, the programmer can display the current board and initialize the playing of a Connect 4 game.
+
+  I have included a constructor in the implementation of both board and column class that allocates enough space for board. That is, the column constructor allocates room for six characters within a column, and the board constructor allocates room for seven columns within a board. Nevertheless, only the board implementation requires a deconstructor that deletes this dynamic memory. That is because if the board is deleted, it follows that all characters within each column character array
+are also deleted. 
+
+This deconstructor is necessary, though, to ensure that our heap space is freed after its use has expired. We do not want heap memory to remain reserved after the program has ended, so we need this deconstructor to confirm that the heap will become free. This deconstructor is called indirectly after a while loop iteration in which a board is constructed. In other words, a board is constructed and a Connect 4 game is played until the game is over. 
+
+    The computer player was created by replacing user the second user automated move. The computer generate random positions to play against player 1. In order to validate the output of this program, the Connect 4 game, I did multiple runs and it seemed bugs free. Overall this game programing was very fun and I have learned a lot. 
+
+
+
+
+
