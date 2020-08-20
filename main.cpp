@@ -1,19 +1,32 @@
-/* thibault Joseph Twahirwa
- * CSE 20312 , lab 1 
- * 
- * This is a game of connect 4, which used tow classes that are namely C4Col and C4CBoard to create the game. This game can be played either with two players or with computer 
- *
- */
+// Thibault Joseph Twahirwa
+// Lab 4, cse20312
+//
+// main driver 
+// generate board fromfile input and solve 
 
 #include <iostream>
-#include "C4Col.h"
-#include "C4Board.h"
-
+#include "Puzzle.h"
+#include <fstream>
+#include <cstdlib>
 using namespace std;
 
-int main (void){
-    C4Board game;
-    game.play();
+int main()
+{
+
+    // read in a filename from the user. Do not run the program if the file does not exist
+    ifstream inFile;    // object for reading from a file
+    string puzName;
+    cout << "\nPlease enter the full file name of the textfile containing the sudoku puzzle.\nFilename: ";
+    cin >> puzName;
+    inFile.open(puzName.c_str(), ios::in);  // opens the puzzlefile for input
+    if(! inFile) {
+        cout << "Error File does not exist."<< endl;
+        return 1;
+    }
+
+    inFile.close();
+    Puzzle sudoku( puzName );
+    sudoku.solve();
 
     return 0;
 }
